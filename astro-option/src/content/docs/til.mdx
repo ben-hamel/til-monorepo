@@ -1,0 +1,44 @@
+---
+title: TIL
+description: Today I Learned
+---
+
+import { getCollection } from 'astro:content';
+
+export const tils = (await getCollection('docs')).filter(
+  (e) =>
+    !['index', 'til'].includes(e.id) &&
+    !e.id.startsWith('guides/') &&
+    !e.id.startsWith('reference/')
+);
+
+export const byCategory = tils.reduce((acc, entry) => {
+  const cat = entry.id.split('/')[0];
+  (acc[cat] ??= []).push(entry);
+  return acc;
+}, {});
+
+{/* **Today I Learned.**  */}
+
+**{tils.length} TILs so far.**
+
+## Recently Added
+
+<ul>
+  {tils.slice(-5).reverse().map(e => (
+    <li key={e.id}><a href={`/${e.id}/`}>{e.data.title}</a></li>
+  ))}
+</ul>
+
+ ## Categories
+
+{Object.entries(byCategory).map(([cat, entries]) => (
+  <section key={cat}>
+    <h3>{cat.charAt(0).toUpperCase() + cat.slice(1)}</h3>
+    <ul>
+      {entries.map(e => (
+        <li key={e.id}><a href={`/${e.id}/`}>{e.data.title}</a></li>
+      ))}
+    </ul>
+  </section>
+))}

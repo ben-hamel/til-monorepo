@@ -1,0 +1,13 @@
+[tools]
+uv = "latest"
+
+[settings]
+python.uv_venv_auto = "source"
+# python.uv_venv_auto = "create|source"
+
+[tasks.serve]
+
+run = "uv run zensical serve"
+
+[tasks.build]
+run = "uv run zensical build"
