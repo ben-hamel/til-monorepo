@@ -16,6 +16,11 @@ export default defineConfig({
 			sidebar: [
 				{ label: 'TIL', link: '/til/' },
 				{
+					label: 'Dotfiles',
+					collapsed: true,
+					items: [{ autogenerate: { directory: 'dotfiles' } }],
+				},
+				{
 					label: 'Docker',
 					collapsed: true,
 					items: [{ autogenerate: { directory: 'docker' } }],
