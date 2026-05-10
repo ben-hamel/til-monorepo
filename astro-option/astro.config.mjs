@@ -12,7 +12,7 @@ export default defineConfig({
 				src: './src/assets/favicon.svg',
 			},
 			lastUpdated: true,
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/ben-hamel/til' }],
 			sidebar: [
 				{ label: 'TIL', link: '/til/' },
 				{
