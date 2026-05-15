@@ -37,6 +37,11 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Bun',
+					collapsed: true,
+					items: [{ autogenerate: { directory: 'bun' } }],
+				},
+				{
 					label: 'Windows',
 					collapsed: true,
 					items: [
